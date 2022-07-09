@@ -1,0 +1,31 @@
+{
+  "name": "adventofcode",
+  "version": "0.0.1",
+  "description": "Solutions for advent of code chanllenges",
+  "main": "index.ts",
+  "scripts": {
+    "compile": "ts-node index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbhishekGowda28/adventofcode.git"
+  },
+  "keywords": [
+    "Advent of Code",
+    "adventofcode"
+  ],
+  "author": "Abhishek Gowda",
+  "license": "Mozilla Public License Version 2.0",
+  "bugs": {
+    "url": "https://github.com/AbhishekGowda28/adventofcode/issues"
+  },
+  "homepage": "https://github.com/AbhishekGowda28/adventofcode#readme",
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  },
+  "pre-commit": [
+    "compile"
+  ]
+}
