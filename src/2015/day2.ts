@@ -1,6 +1,6 @@
 import { getDataFromFile } from './getDataFromFile';
 
-const fileName = './src/2015/input-2.txt';
+const fileName = `${__filename.split('.')[0]}.txt`;
 
 function getSurfaceAreaOfBox(boxDimmension: string) {
     const [l, w, h] = boxDimmension.split('x').map(x => parseInt(x, 10)).sort((a, b) => a - b);

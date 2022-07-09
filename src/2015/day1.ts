@@ -1,6 +1,6 @@
 import { getDataFromFile } from "./getDataFromFile";
 
-const fileName = './src/2015/input-1.txt';
+const fileName = `${__filename.split('.')[0]}.txt`;
 
 const input = getDataFromFile(fileName);
 
