@@ -16,17 +16,22 @@ try {
             if (file.isDirectory()) {
                 executeFiles(filePath);
             } else {
-                const command = `ts-node ${filePath}`;
-                exec(command, (error, stdout, stderr) => {
-                    if (error) {
-                        console.error(error);
-                    }
-                    if (stderr) {
-                        console.error(stderr);
-                    }
-                    console.log(`File ${filePath}`);
-                    console.log(stdout);
-                });
+                /**
+                 * Execute only ts files
+                 */
+                if (file.name.split('.')[1] === 'ts') {
+                    const command = `ts-node ${filePath}`;
+                    exec(command, (error, stdout, stderr) => {
+                        if (error) {
+                            console.error(error);
+                        }
+                        if (stderr) {
+                            console.error(stderr);
+                        }
+                        console.log(`File ${filePath}`);
+                        console.log(stdout);
+                    });
+                }
             }
         });
     }
