@@ -4,51 +4,52 @@ const fileName = `${__filename.split('.')[0]}.txt`;
 
 let data = getDataFromFile(fileName);
 
-type Presents = {
-    [key: string]: number;
-}
-
 type Location = {
     x: number;
     y: number;
 };
 
-function numberOfPresents(directions: string) {
-    const houses = directions.trim().split("");
+function numberOfPresents(directions: string, numberOfSanta=1) {
+    const houses = directions.split("");
     const santa: Location = { x: 0, y: 0 };
-    const location: Presents = { "00": 1 };
-
+    const roboSanta: Location = { x: 0, y: 0 };
+    const locatioSet:Set<string> = new Set();
+    
+    locatioSet.add(`${santa.x}${santa.y}`);
+    
     houses.forEach((house, index) => {
+        
+        const personMoving = index % numberOfSanta === 0 ? santa : roboSanta;
 
         switch (house) {
             case '^': {
-                santa.y += 1;
-                break;
-            }
-            case '<': {
-                santa.x -= 1;
-                break;
-            }
-            case '>': {
-                santa.x += 1;
+                personMoving.y += 1;
                 break;
             }
             case 'v': {
-                santa.y -= 1;
+                personMoving.y -= 1;
                 break;
             }
-            default: break;
+            case '>': {
+                personMoving.x += 1;
+                break;
+            }
+            case '<': {
+                personMoving.x -= 1;
+                break;
+            }
         }
-
-        const currentLocation = `${santa.x}${santa.y}`;
-        const numberOfpresentDelivedToLocation = location[currentLocation] || 0;
-        location[currentLocation] = numberOfpresentDelivedToLocation + 1;
-
+        
+        locatioSet.add(`${personMoving.x}${personMoving.y}`);
+        
     });
 
-    return { houseWithAtleastOnePresent: Object.keys(location).length };
+    return { houseWithAtleastOnePresent: locatioSet.size };
 };
 
-const output = numberOfPresents(data);
+
+// Getting wrong answer for part-2: Correct answer is 2639 but getting 2625
+const output = numberOfPresents(data, 1);
+
 
 console.log(output);
