@@ -22,6 +22,7 @@
   "homepage": "https://github.com/AbhishekGowda28/adventofcode#readme",
   "devDependencies": {
     "pre-commit": "^1.2.2",
+    "ts-md5": "^1.2.11",
     "ts-node": "^10.8.2",
     "typescript": "^4.7.4"
   },
