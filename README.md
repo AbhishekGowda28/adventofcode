@@ -1,2 +1,2 @@
 # adventofcode
-Solutions for advent of code chanllenges
+Solutions to advent of code chanllenges
